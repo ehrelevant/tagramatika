@@ -1,11 +1,16 @@
-import './App.css';
+import styled from 'styled-components';
 
 function App() {
   return (
-    <div className="App">
+    <AppWrapper className="App">
       <h1>Hello World!</h1>
-    </div>
+    </AppWrapper>
   );
 }
 
 export default App;
+
+const AppWrapper = styled.div`
+  min-height: 100vh;
+  text-align: center;
+`;
