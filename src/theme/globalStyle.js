@@ -55,6 +55,23 @@ const GlobalStyle = createGlobalStyle`
   /*
     == Actual Styles Start Here ==
   */
+
+
+  /* Font Imports */
+  @font-face {
+    font-family: 'BerkshireSwash';
+    src: local('BerkshireSwash'), url('./assets/fonts/BerkshireSwash-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Forum';
+    src: local('Forum'), url('./assets/fonts/Forum-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'TenorSans';
+    src: local('TenorSans'), url('./assets/fonts/TenorSans-Regular.ttf') format('truetype');
+  }
 `;
 
 export default GlobalStyle;
