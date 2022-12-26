@@ -3,7 +3,7 @@ import styled from 'styled-components';
 function TextInput() {
   return (
     <TextInputWrapper className="App">
-      <textarea className="text-input-area"/>
+      <textarea className="text-input-area" placeholder="Magsulat dito..." />
     </TextInputWrapper>
   );
 }
@@ -17,7 +17,8 @@ const TextInputWrapper = styled.div`
   border: 1px solid #000;
   border-radius: 20px;
 
-  background: rgba(240, 240, 240, 0.5);
+  background: #F0F0F0;
+  // background: rgba(240, 240, 240, 0.5);
 
   padding: 20px;
 
@@ -27,5 +28,17 @@ const TextInputWrapper = styled.div`
     box-sizing: border-box;
 
     resize: none;
+
+    color: ${({ theme }) => theme.light.text };
+    font-size: 1.6rem;
+
+    background: none;
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
   }
 `;
