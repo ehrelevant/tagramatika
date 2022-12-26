@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 function TextInput() {
   return (
-    <TextInputWrapper className="App">
+    <TextInputWrapper>
       <textarea className="text-input-area" placeholder="Magsulat dito..." />
     </TextInputWrapper>
   );
