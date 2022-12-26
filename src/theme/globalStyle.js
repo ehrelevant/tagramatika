@@ -1,5 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
+// Font imports (for bundling purposes)
+import BerkshireSwash from '../assets/fonts/BerkshireSwash-Regular.ttf';
+import Forum from '../assets/fonts/Forum-Regular.ttf';
+import TenorSans from '../assets/fonts/TenorSans-Regular.ttf';
+
 const GlobalStyle = createGlobalStyle`
   /*
     == CSS Reset ==
@@ -60,17 +65,30 @@ const GlobalStyle = createGlobalStyle`
   /* Font Imports */
   @font-face {
     font-family: 'BerkshireSwash';
-    src: local('BerkshireSwash'), url('./assets/fonts/BerkshireSwash-Regular.ttf') format('truetype');
+    src: url(${BerkshireSwash}) format('truetype');
   }
 
   @font-face {
     font-family: 'Forum';
-    src: local('Forum'), url('./assets/fonts/Forum-Regular.ttf') format('truetype');
+    src: url(${Forum}) format('truetype');
   }
 
   @font-face {
     font-family: 'TenorSans';
-    src: local('TenorSans'), url('./assets/fonts/TenorSans-Regular.ttf') format('truetype');
+    src: local(${TenorSans}), url('./assets/fonts/TenorSans-Regular.ttf') format('truetype');
+  }
+
+  /* Global Font Families */
+  h1 {
+    font-family: 'BerkshireSwash';
+  }
+
+  h2 {
+    font-family: 'Forum';
+  }
+
+  body, p, div, span, textarea, button {
+    font-family: 'TenorSans';
   }
 `;
 
