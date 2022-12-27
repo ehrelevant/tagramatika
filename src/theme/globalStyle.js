@@ -75,7 +75,7 @@ const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'TenorSans';
-    src: local(${TenorSans}), url('./assets/fonts/TenorSans-Regular.ttf') format('truetype');
+    src: url(${TenorSans}) format('truetype');
   }
 
   /* Global Font Families */
