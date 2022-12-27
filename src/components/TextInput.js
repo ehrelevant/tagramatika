@@ -22,6 +22,8 @@ const TextInputWrapper = styled.div`
 
   padding: 20px;
 
+  margin: 10px 0 30px 0;
+
   .text-input-area {
     height: 100%;
     width: 100%;
