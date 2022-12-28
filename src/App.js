@@ -16,12 +16,18 @@ function App() {
   const [ state, setState ] = useState({
     darkModeEnabled: false,
     settingsPanelOpen: false,
+    textInputValue: '',
+    textInputActive: false,
+    fontSizeValue: 1.6,
   });
 
   const toggleSettingsPanel = () => {
     setState({
       settingsPanelOpen: !state.settingsPanelOpen,
       darkModeEnabled: state.darkModeEnabled,
+      textInputValue: state.textInputValue,
+      textInputActive: state.textInputActive,
+      fontSizeValue: state.fontSizeValue,
     });
   };
 
@@ -29,22 +35,48 @@ function App() {
     setState({
       settingsPanelOpen: state.settingsPanelOpen,
       darkModeEnabled: event.target.checked,
+      textInputValue: state.textInputValue,
+      textInputActive: state.textInputActive,
+      fontSizeValue: state.fontSizeValue,
     });
   };
+
+  const onTextInputChange = (event) => {
+    const newTextInputValue = event.target.value;
+    setState({
+      settingsPanelOpen: state.settingsPanelOpen,
+      darkModeEnabled: state.darkModeEnabled,
+      textInputValue: newTextInputValue,
+      textInputActive: (!!newTextInputValue),
+      fontSizeValue: state.fontSizeValue,
+    });
+  };
+
+  const onSliderChange = (event) => {
+    console.log(event.target.value);
+
+    setState({
+      settingsPanelOpen: state.settingsPanelOpen,
+      darkModeEnabled: state.darkModeEnabled,
+      textInputValue: state.textInputValue,
+      textInputActive: state.textInputActive,
+      fontSizeValue: event.target.value,
+    });
+  }
 
   return (
     <ThemeProvider theme={(state.darkModeEnabled) ? (darkTheme) : (lightTheme)}>
       <GlobalStyle />
-      <AppWrapper className="App">
+      <AppWrapper className="App" textInputActive={state.textInputActive}>
         {((state.settingsPanelOpen)
-          ? (<SettingsPanel toggleSettingsPanel={toggleSettingsPanel} toggleDarkMode={toggleDarkMode} />)
+          ? (<SettingsPanel toggleSettingsPanel={toggleSettingsPanel} toggleDarkMode={toggleDarkMode} onSliderChange={onSliderChange} fontSizeValue={state.fontSizeValue} />)
           : (<button className="settings-button" onClick={toggleSettingsPanel}><SettingsRoundedIcon /></button>))}
 
         <div className="header-text">
           <h1 className="logo-text">TaGramatika</h1>
           <h2 className="sub-logo-text">"Gumamit ng tamang gramatika, gamit ang TaGramatika!"</h2>
         </div>
-        <TextInput />
+        <TextInput onTextInputChange={onTextInputChange} textInputValue={state.textInputValue} textInputActive={state.textInputActive} fontSizeValue={state.fontSizeValue}/>
         <div className="buttons-group">
           <Button buttonText="Suriin" className="suriin-button" />
           <Button buttonText="—" className="error-count-button" />
@@ -130,16 +162,22 @@ const AppWrapper = styled.div`
       font-size: 1.6rem;
       height: 80px;
 
-      background-color: ${({ theme }) => theme.textInputBgActive};
-      // background: ${({ theme }) => theme.textInputBgInactive};;
+      background-color: ${({ textInputActive, theme }) => (
+        (textInputActive) ? (theme.textInputBgActive) : (theme.textInputBgInactive)
+      )};
+
+      transition: 100ms ease-in-out;
     }
 
     .error-count-button {
       font-size: 1.6rem;
       height: 40px;
 
-      background-color: ${({ theme }) => theme.textInputBgActive};
-      // background: ${({ theme }) => theme.textInputBgInactive};;
+      background-color: ${({ textInputActive, theme }) => (
+        (textInputActive) ? (theme.textInputBgActive) : (theme.textInputBgInactive)
+      )};
+
+      transition: 100ms ease-in-out;
     }
   }
 `;

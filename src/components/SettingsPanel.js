@@ -6,7 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
-function SettingsPanel({ toggleSettingsPanel, toggleDarkMode }) {
+function SettingsPanel({ toggleSettingsPanel, toggleDarkMode, onSliderChange, fontSizeValue }) {
   return (
     <SettingsPanelWrapper>
       <button className="exit-button" onClick={toggleSettingsPanel}><CloseRoundedIcon /></button>
@@ -22,7 +22,7 @@ function SettingsPanel({ toggleSettingsPanel, toggleDarkMode }) {
         </div>
         <Stack spacing={2} direction="row" alignItems="center">
           <RemoveIcon />
-          <Slider aria-label="Font Size" min={0.8} max={2.4} defaultValue={1.6} step={0.05} />
+          <Slider aria-label="Font Size" min={0.8} max={2.4} defaultValue={1.6} step={0.05} onChange={onSliderChange} value={fontSizeValue} />
           <AddIcon />
         </Stack>
       </div>
@@ -52,6 +52,8 @@ const SettingsPanelWrapper = styled.div`
   border-radius: 20px;
   background: ${({ theme }) => theme.settingsPanelBg};
   backdrop-filter: blur(20px);
+
+  transition: 100ms ease-in-out;
 
   box-sizing: border-box;
   padding: 20px;
@@ -108,5 +110,7 @@ const SettingsPanelWrapper = styled.div`
   .settings-option-button {
     font-size: 1.6rem;
     height: 60px;
+
+    transition: 100ms ease-in-out;
   }
 `;

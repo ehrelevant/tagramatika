@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-function TextInput() {
+function TextInput({ onTextInputChange, textInputValue, textInputActive, fontSizeValue }) {
   return (
-    <TextInputWrapper>
-      <textarea className="text-input-area" placeholder="Magsulat dito..." />
+    <TextInputWrapper textInputActive={textInputActive} fontSizeValue={fontSizeValue}>
+      <textarea className="text-input-area" placeholder="Magsulat dito..." onChange={onTextInputChange} value={textInputValue} />
     </TextInputWrapper>
   );
 }
@@ -17,8 +17,10 @@ const TextInputWrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.border};;
   border-radius: 20px;
 
-  background: ${({ theme }) => theme.textInputBgActive};
-  // background: ${({ theme }) => theme.textInputBgInactive};;
+  background-color: ${({ textInputActive, theme }) => (
+    (textInputActive) ? (theme.textInputBgActive) : (theme.textInputBgInactive)
+  )};
+  transition: 100ms ease-in-out;
 
   padding: 20px;
 
@@ -32,7 +34,7 @@ const TextInputWrapper = styled.div`
     resize: none;
 
     color: ${({ theme }) => theme.text };
-    font-size: 1.6rem;
+    font-size: ${({ fontSizeValue }) => fontSizeValue}rem;
 
     background: none;
     border: none;
