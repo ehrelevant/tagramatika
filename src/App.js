@@ -97,6 +97,7 @@ const AppWrapper = styled.div`
   background-color: ${({ theme }) => theme.bgColor};
   background-image: url( ${({ theme }) => theme.bgImage} );
   background-size: cover;
+  background-position: center bottom;
 
   display: flex;
   flex-direction: column;
