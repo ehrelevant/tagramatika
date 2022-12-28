@@ -6,15 +6,15 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
-function SettingsPanel() {
+function SettingsPanel({ toggleSettingsPanel, toggleDarkMode }) {
   return (
     <SettingsPanelWrapper>
-      <button className="exit-button"><CloseRoundedIcon /></button>
+      <button className="exit-button" onClick={toggleSettingsPanel}><CloseRoundedIcon /></button>
       <div className="dark-mode-toggle settings-option">
         <div className="settings-option-label">
           <p>Dark Mode</p>
         </div>
-        <Switch />
+        <Switch onChange={toggleDarkMode} />
       </div>
       <div className="font-size-slider settings-option">
         <div className="settings-option-label">
@@ -48,9 +48,9 @@ const SettingsPanelWrapper = styled.div`
   width: 25%;
   height: 360px;
 
-  border: 3px solid #000;
+  border: 3px solid ${({ theme }) => theme.border};
   border-radius: 20px;
-  background: rgba(183, 204, 223, 0.4);
+  background: ${({ theme }) => theme.settingsPanelBg};
   backdrop-filter: blur(20px);
 
   box-sizing: border-box;
@@ -70,7 +70,7 @@ const SettingsPanelWrapper = styled.div`
 
     cursor: pointer;
 
-    border: 3px solid black;
+    border: 3px solid ${({ theme }) => theme.border};
     border-radius: 50%;
     height: 60px;
     width: 60px;
@@ -78,6 +78,8 @@ const SettingsPanelWrapper = styled.div`
     svg {
       height: 100%;
       width: 100%;
+
+      color: ${({ theme }) => theme.generalIcon};
     }
   }
 

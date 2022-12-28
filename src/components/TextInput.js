@@ -14,11 +14,11 @@ const TextInputWrapper = styled.div`
   width: 70%;
   height: 400px;
 
-  border: 1px solid #000;
+  border: 1px solid ${({ theme }) => theme.border};;
   border-radius: 20px;
 
-  background: #F0F0F0;
-  // background: rgba(240, 240, 240, 0.5);
+  background: ${({ theme }) => theme.textInputBgActive};
+  // background: ${({ theme }) => theme.textInputBgInactive};;
 
   padding: 20px;
 
@@ -31,7 +31,7 @@ const TextInputWrapper = styled.div`
 
     resize: none;
 
-    color: ${({ theme }) => theme.light.text };
+    color: ${({ theme }) => theme.text };
     font-size: 1.6rem;
 
     background: none;

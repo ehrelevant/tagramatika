@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from './theme/globalStyle';
+import { lightTheme, darkTheme }from './theme/theme';
+
+import { useState } from 'react';
 
 import TextInput from './components/TextInput';
 
@@ -8,21 +13,44 @@ import SettingsPanel from './components/SettingsPanel';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 
 function App() {
-  return (
-    <AppWrapper className="App">
-      <button className="settings-button"><SettingsRoundedIcon /></button>
-      {/* <SettingsPanel /> */}
+  const [ state, setState ] = useState({
+    darkModeEnabled: false,
+    settingsPanelOpen: false,
+  });
 
-      <div className="header-text">
-        <h1 className="logo-text">TaGramatika</h1>
-        <h2 className="sub-logo-text">"Gumamit ng tamang gramatika, gamit ang TaGramatika!"</h2>
-      </div>
-      <TextInput />
-      <div className="buttons-group">
-        <Button buttonText="Suriin" className="suriin-button" />
-        <Button buttonText="—" className="error-count-button" />
-      </div>
-    </AppWrapper>
+  const toggleSettingsPanel = () => {
+    setState({
+      settingsPanelOpen: !state.settingsPanelOpen,
+      darkModeEnabled: state.darkModeEnabled,
+    });
+  };
+
+  const toggleDarkMode = (event) => {
+    setState({
+      settingsPanelOpen: state.settingsPanelOpen,
+      darkModeEnabled: event.target.checked,
+    });
+  };
+
+  return (
+    <ThemeProvider theme={(state.darkModeEnabled) ? (darkTheme) : (lightTheme)}>
+      <GlobalStyle />
+      <AppWrapper className="App">
+        {((state.settingsPanelOpen)
+          ? (<SettingsPanel toggleSettingsPanel={toggleSettingsPanel} toggleDarkMode={toggleDarkMode} />)
+          : (<button className="settings-button" onClick={toggleSettingsPanel}><SettingsRoundedIcon /></button>))}
+
+        <div className="header-text">
+          <h1 className="logo-text">TaGramatika</h1>
+          <h2 className="sub-logo-text">"Gumamit ng tamang gramatika, gamit ang TaGramatika!"</h2>
+        </div>
+        <TextInput />
+        <div className="buttons-group">
+          <Button buttonText="Suriin" className="suriin-button" />
+          <Button buttonText="—" className="error-count-button" />
+        </div>
+      </AppWrapper>
+    </ThemeProvider>
   );
 }
 
@@ -33,9 +61,9 @@ const AppWrapper = styled.div`
   height: 100vh;
   text-align: center;
 
-  color: ${({ theme }) => theme.light.text};
-  background-color: ${({ theme }) => theme.light.bgColor};
-  background-image: url( ${({ theme }) => theme.light.bgImage} );
+  color: ${({ theme }) => theme.text};
+  background-color: ${({ theme }) => theme.bgColor};
+  background-image: url( ${({ theme }) => theme.bgImage} );
   background-size: cover;
 
   display: flex;
@@ -61,12 +89,12 @@ const AppWrapper = styled.div`
     svg {
       height: 100%;
       width: 100%;
-      color: #2F4369;
+      color: ${({ theme }) => theme.settingsIcon};
     }
   }
 
   .header-text {
-    color: #FFF;
+    color: ${({ theme }) => theme.headerText};
 
     display: flex;
     flex-direction: column;
@@ -101,11 +129,17 @@ const AppWrapper = styled.div`
     .suriin-button {
       font-size: 1.6rem;
       height: 80px;
+
+      background-color: ${({ theme }) => theme.textInputBgActive};
+      // background: ${({ theme }) => theme.textInputBgInactive};;
     }
 
     .error-count-button {
       font-size: 1.6rem;
       height: 40px;
+
+      background-color: ${({ theme }) => theme.textInputBgActive};
+      // background: ${({ theme }) => theme.textInputBgInactive};;
     }
   }
 `;
