@@ -16,7 +16,8 @@ function App() {
   const [ state, setState ] = useState({
     darkModeEnabled: false,
     settingsPanelOpen: false,
-    textInputValue: '',
+    textInputContent: '',
+    textInputHtml: '',
     textInputActive: false,
     fontSizeValue: 1.6,
   });
@@ -25,7 +26,8 @@ function App() {
     setState({
       settingsPanelOpen: !state.settingsPanelOpen,
       darkModeEnabled: state.darkModeEnabled,
-      textInputValue: state.textInputValue,
+      textInputContent: state.textInputContent,
+      textInputHtml: state.textInputHtml,
       textInputActive: state.textInputActive,
       fontSizeValue: state.fontSizeValue,
     });
@@ -35,30 +37,33 @@ function App() {
     setState({
       settingsPanelOpen: state.settingsPanelOpen,
       darkModeEnabled: event.target.checked,
-      textInputValue: state.textInputValue,
+      textInputContent: state.textInputContent,
+      textInputHtml: state.textInputHtml,
       textInputActive: state.textInputActive,
       fontSizeValue: state.fontSizeValue,
     });
   };
 
   const onTextInputChange = (event) => {
-    const newTextInputValue = event.target.value;
+    const newTextInputContent = event.target.textContent;
+    const newTextInputHtml = event.target.innerHTML;
+
     setState({
       settingsPanelOpen: state.settingsPanelOpen,
       darkModeEnabled: state.darkModeEnabled,
-      textInputValue: newTextInputValue,
-      textInputActive: (!!newTextInputValue),
+      textInputContent: newTextInputContent,
+      textInputHtml: newTextInputHtml,
+      textInputActive: (!!newTextInputContent),
       fontSizeValue: state.fontSizeValue,
     });
   };
 
   const onSliderChange = (event) => {
-    console.log(event.target.value);
-
     setState({
       settingsPanelOpen: state.settingsPanelOpen,
       darkModeEnabled: state.darkModeEnabled,
-      textInputValue: state.textInputValue,
+      textInputContent: state.textInputContent,
+      textInputHtml: state.textInputHtml,
       textInputActive: state.textInputActive,
       fontSizeValue: event.target.value,
     });
@@ -76,7 +81,7 @@ function App() {
           <h1 className="logo-text">TaGramatika</h1>
           <h2 className="sub-logo-text">"Gumamit ng tamang gramatika, gamit ang TaGramatika!"</h2>
         </div>
-        <TextInput onTextInputChange={onTextInputChange} textInputValue={state.textInputValue} textInputActive={state.textInputActive} fontSizeValue={state.fontSizeValue}/>
+        <TextInput onTextInputChange={onTextInputChange} textInputActive={state.textInputActive} fontSizeValue={state.fontSizeValue}/>
         <div className="buttons-group">
           <Button buttonText="Suriin" className="suriin-button" />
           <Button buttonText="—" className="error-count-button" />

@@ -16,6 +16,12 @@ const lightTheme = {
   textInputBgInactive: 'rgba(240, 240, 240, 0.5)',
 
   settingsPanelBg: 'rgba(183, 204, 223, 0.4)',
+
+  correctionsPanelBg: 'rgba(183, 204, 223, 0.4)',
+
+  mistakeText: '#FF0000',
+  acceptBg: 'rgba(183, 223, 185, 0.6)',
+  rejectBg: 'rgba(223, 185, 183, 0.6)',
 };
 
 const darkTheme = {
@@ -32,6 +38,12 @@ const darkTheme = {
   textInputBgInactive: 'rgba(6, 29, 44, 0.5)',
 
   settingsPanelBg: 'rgba(17, 27, 48, 0.85)',
+
+  correctionsPanelBg: 'rgba(43, 72, 98, 0.4)',
+
+  mistakeText: '#FB5757',
+  acceptBg: 'rgba(12, 182, 100, 0.75)',
+  rejectBg: 'rgba(251, 87, 87, 0.75)',
 }
 
 export { lightTheme, darkTheme };
