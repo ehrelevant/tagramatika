@@ -38,7 +38,7 @@ const SettingsPanelWrapper = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 1;
+  z-index: 2;
 
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@ const SettingsPanelWrapper = styled.div`
     position: absolute;
     top: 10px;
     right: 10px;
-    z-index: 2;
+    z-index: 3;
 
     background: none;
     border: none;
