@@ -17,7 +17,7 @@ const lightTheme = {
 
   settingsPanelBg: 'rgba(183, 204, 223, 0.4)',
 
-  correctionsPanelBg: 'rgba(183, 204, 223, 0.4)',
+  correctionsPanelBg: 'rgba(180, 206, 229, 0.75)',
 
   mistakeText: '#FF0000',
   acceptBg: 'rgba(183, 223, 185, 0.6)',

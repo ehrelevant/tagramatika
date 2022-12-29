@@ -2,7 +2,10 @@ import styled from 'styled-components';
 
 import Button from './Button';
 
+import { Rating } from '@mui/material';
+
 import EastRoundedIcon from '@mui/icons-material/EastRounded';
+import { Star } from '@mui/icons-material';
 
 function CorrectionsPanel({ posX, posY, mistake, correction, reason, description }) {
   return (
@@ -18,6 +21,10 @@ function CorrectionsPanel({ posX, posY, mistake, correction, reason, description
       <div className="correction-div-group correction-buttons">
         <Button className="correction-button accept-button" buttonText="Tangappin" />
         <Button className="correction-button reject-button" buttonText="Tanggihan" />
+        <Rating
+          icon={<Star style={{ color: '#fff' }}fontSize="inherit" />}
+          emptyIcon={<Star fontSize="inherit" />}
+        />
       </div>
     </CorrectionsPanelWrapper>
   );
@@ -38,7 +45,7 @@ const CorrectionsPanelWrapper = styled.div`
   backdrop-filter: blur(20px);
 
   min-width: 300px;
-  max-width: 40%;
+  max-width: 30%;
   padding: 10px;
   gap: 15px;
 
@@ -73,7 +80,10 @@ const CorrectionsPanelWrapper = styled.div`
   }
 
   .correction-buttons {
+    flex-wrap: wrap;
+
     .correction-button {
+      max-width: 200px;
       font-size: 1.4rem;
       height: 60px;
     }
