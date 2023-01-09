@@ -7,20 +7,20 @@ import { Rating } from '@mui/material';
 import EastRoundedIcon from '@mui/icons-material/EastRounded';
 import { Star } from '@mui/icons-material';
 
-function CorrectionsPanel({ posX, posY, mistake, correction, reason, description }) {
+function CorrectionsPanel({ posX, posY, correctionDetails, onAccept, onReject }) {
   return (
-    <CorrectionsPanelWrapper posX={posX} posY={posY}>
+    <CorrectionsPanelWrapper posX={posX} posY={posY} id="correction_panel">
       <div className="correction-div-group correction-main">
-        <p className="mistake-text">{mistake}</p>
+        <p className="mistake-text">{correctionDetails.mistake}</p>
         <EastRoundedIcon />
-        <p>{correction}</p>
+        <p>{correctionDetails.correction}</p>
       </div>
       <div className="correction-div-group correction-description">
-        <p><u className="correction-reason">{reason}</u> {description}</p>
+        <p><u className="correction-reason">{correctionDetails.reason}</u> {correctionDetails.description}</p>
       </div>
       <div className="correction-div-group correction-buttons">
-        <Button className="correction-button accept-button" buttonText="Tangappin" />
-        <Button className="correction-button reject-button" buttonText="Tanggihan" />
+        <Button className="correction-button accept-button" buttonText="Tangappin" onButtonClicked={onAccept} />
+        <Button className="correction-button reject-button" buttonText="Tanggihan" onButtonClicked={onReject} />
         <Rating
           icon={<Star style={{ color: '#fff' }}fontSize="inherit" />}
           emptyIcon={<Star fontSize="inherit" />}
@@ -34,8 +34,8 @@ export default CorrectionsPanel;
 
 const CorrectionsPanelWrapper = styled.div`
   position: absolute;
-  top: ${({ posX }) => posX}px;
-  left: ${({ posY }) => posY}px;
+  top: ${({ posY }) => posY}px;
+  left: ${({ posX }) => posX}px;
   z-index: 1;
 
   border: 3px solid ${({ theme }) => theme.border};

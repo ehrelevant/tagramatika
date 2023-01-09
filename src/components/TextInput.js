@@ -1,10 +1,21 @@
 import styled from 'styled-components';
 
+import { useEffect } from "react";
+
 function TextInput({ onTextInputChange, textInputActive, fontSizeValue }) {
+  useEffect(() => {
+    // Put "addEventListener"s here
+
+
+    return () => {
+      // Put "removeEventListener"s here
+    }
+  }, [])
+
   return (
     <TextInputWrapper textInputActive={textInputActive} fontSizeValue={fontSizeValue}>
-      {/* This is the only place where an HTML id is used, and this is very important */}
-      <div contentEditable id="text_input_area" className="text-input-area" onInput={onTextInputChange}></div>
+      {/* This is the only place where an HTML id is used, and this is a very important one */}
+      <p contentEditable id="text_input_area" className="text-input-area" onInput={onTextInputChange}></p>
     </TextInputWrapper>
   );
 }
@@ -27,6 +38,8 @@ const TextInputWrapper = styled.div`
   margin: 10px 0 30px 0;
 
   overflow: hidden;
+
+  display: inline-block;
 
   .text-input-area {
     height: 100%;
@@ -52,5 +65,9 @@ const TextInputWrapper = styled.div`
     box-shadow: none;
 
     display: inline-block;
+
+    .uncorrected-text {
+      color: ${({ theme }) => theme.mistakeText};
+    }
   }
 `;
