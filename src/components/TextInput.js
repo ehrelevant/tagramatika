@@ -26,7 +26,7 @@ const TextInputWrapper = styled.div`
   padding: 20px;
   margin: 10px 0 30px 0;
 
-  overflow-y: scroll;
+  overflow: hidden;
 
   .text-input-area {
     height: 100%;
@@ -50,5 +50,7 @@ const TextInputWrapper = styled.div`
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+
+    display: inline-block;
   }
 `;
