@@ -1,17 +1,6 @@
 import styled from 'styled-components';
 
-import { useEffect } from "react";
-
 function TextInput({ onTextInputChange, textInputActive, fontSizeValue }) {
-  useEffect(() => {
-    // Put "addEventListener"s here
-
-
-    return () => {
-      // Put "removeEventListener"s here
-    }
-  }, [])
-
   return (
     <TextInputWrapper textInputActive={textInputActive} fontSizeValue={fontSizeValue}>
       {/* This is the only place where an HTML id is used, and this is a very important one */}
