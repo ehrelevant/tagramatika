@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 import Button from './Button';
+
 import { Switch, Stack, Slider } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -26,7 +29,7 @@ function SettingsPanel({ toggleSettingsPanel, toggleDarkMode, onSliderChange, fo
           <AddIcon />
         </Stack>
       </div>
-      <Button className="settings-option-button" buttonText="Tungkol sa TaGramatika" />
+      <Link to="/about"><Button className="settings-option-button" buttonText="Tungkol sa TaGramatika" /></Link>
       <Button className="settings-option-button" buttonText="Tutoryal" />
     </SettingsPanelWrapper>
   );
