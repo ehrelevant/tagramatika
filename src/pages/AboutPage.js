@@ -92,8 +92,6 @@ const AboutPageWrapper = styled.div`
     overflow-wrap: break-word;
     line-height: 1.2em;
 
-    resize: none;
-
     color: ${({ theme }) => theme.text };
     font-size: ${({ fontSizeValue }) => fontSizeValue}rem;
 
