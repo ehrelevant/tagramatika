@@ -48,8 +48,6 @@ function TutorialOverlay({ tutorialPage, setTutorialPage }) {
 
     const rect2 = suriinButton.getBoundingClientRect();
 
-    console.log(windowSize);
-
     setPos2({
       x: (rect2.left * 0.95) + window.scrollX,
       y: (windowSize.h - (rect2.top)) * 1.05 - window.scrollY,
