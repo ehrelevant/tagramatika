@@ -28,7 +28,11 @@ function App() {
       errorElement: <MainPage toggleDarkMode={toggleDarkMode} fontSizeValue={fontSizeValue} onSliderChange={onSliderChange}/>,
     },
     {
-      path: "about",
+      path: '/tagramatika',
+      element: <MainPage toggleDarkMode={toggleDarkMode} fontSizeValue={fontSizeValue} onSliderChange={onSliderChange}/>,
+    },
+    {
+      path: "/tagramatika/about",
       element: <AboutPage fontSizeValue={fontSizeValue} />,
     },
   ])

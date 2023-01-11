@@ -29,7 +29,7 @@ function SettingsPanel({ toggleSettingsPanel, toggleDarkMode, onSliderChange, fo
           <AddIcon />
         </Stack>
       </div>
-      <Link to="/about"><Button className="settings-option-button" buttonText="Tungkol sa TaGramatika" /></Link>
+      <Link to="/tagramatika/about"><Button className="settings-option-button" buttonText="Tungkol sa TaGramatika" /></Link>
       <Button onButtonClicked={handleTutorialStart} className="settings-option-button" buttonText="Tutoryal" />
     </SettingsPanelWrapper>
   );

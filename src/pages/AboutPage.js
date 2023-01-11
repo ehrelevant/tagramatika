@@ -17,7 +17,7 @@ function AboutPage({ fontSizeValue }) {
 
   return (
     <AboutPageWrapper fontSizeValue={fontSizeValue}>
-      <Link to="/" className="home-button"><HomeRoundedIcon /></Link>
+      <Link to="/tagramatika" className="home-button"><HomeRoundedIcon /></Link>
       <div className="header-text">
         <h1 className="logo-text">TaGramatika</h1>
         <h2 className="sub-logo-text">"Gumamit ng tamang gramatika, gamit ang TaGramatika!"</h2>
