@@ -25,6 +25,7 @@ function App() {
     {
       path: '/',
       element: <MainPage toggleDarkMode={toggleDarkMode} fontSizeValue={fontSizeValue} onSliderChange={onSliderChange}/>,
+      errorElement: <MainPage toggleDarkMode={toggleDarkMode} fontSizeValue={fontSizeValue} onSliderChange={onSliderChange}/>,
     },
     {
       path: "about",
