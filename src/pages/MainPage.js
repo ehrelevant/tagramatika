@@ -5,6 +5,7 @@ import TextInput from '../components/TextInput';
 import Button from '../components/Button';
 import SettingsPanel from '../components/SettingsPanel';
 import CorrectionsPanel from '../components/CorrectionsPanel';
+import TutorialOverlay from '../components/TutorialOverlay';
 
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 
@@ -34,6 +35,7 @@ function MainPage({ toggleDarkMode, fontSizeValue, onSliderChange }) {
     x: -1,
     y: -1,
   });
+  const [tutorialPage, setTutorialPage] = useState(-1);
 
   const toggleSettingsPanel = () => {
     setState({
@@ -208,18 +210,27 @@ function MainPage({ toggleDarkMode, fontSizeValue, onSliderChange }) {
     setVisibleIndex(-1);
   }
 
+  const handleTutorialStart = () => {
+    toggleSettingsPanel();
+    setTutorialPage(0);
+  }
 
   return (
-    <MainPageWrapper textInputActive={state.textInputActive} onClick={checkClickOusideCorrection}>
+    <MainPageWrapper tutorialPage={tutorialPage} textInputActive={state.textInputActive} onClick={checkClickOusideCorrection}>
+      {(tutorialPage !== -1)
+      ? <TutorialOverlay tutorialPage={tutorialPage} setTutorialPage={setTutorialPage} />
+      : <></>
+      }
+
       {((state.settingsPanelOpen)
-        ? (<SettingsPanel toggleSettingsPanel={toggleSettingsPanel} toggleDarkMode={toggleDarkMode} onSliderChange={onSliderChange} fontSizeValue={fontSizeValue} />)
+        ? (<SettingsPanel toggleSettingsPanel={toggleSettingsPanel} toggleDarkMode={toggleDarkMode} onSliderChange={onSliderChange} fontSizeValue={fontSizeValue} handleTutorialStart={handleTutorialStart} />)
         : (<button className="settings-button" onClick={toggleSettingsPanel}><SettingsRoundedIcon /></button>))}
 
       <div className="header-text">
         <h1 className="logo-text">TaGramatika</h1>
         <h2 className="sub-logo-text">"Gumamit ng tamang gramatika, gamit ang TaGramatika!"</h2>
       </div>
-      <TextInput onTextInputChange={onTextInputChange} textInputActive={state.textInputActive} fontSizeValue={fontSizeValue}/>
+      <TextInput tutorialPage={tutorialPage} onTextInputChange={onTextInputChange} textInputActive={state.textInputActive} fontSizeValue={fontSizeValue}/>
 
       {(visibleIndex !== -1)
       ? <CorrectionsPanel
@@ -232,13 +243,12 @@ function MainPage({ toggleDarkMode, fontSizeValue, onSliderChange }) {
       : <></>}
 
       <div className="buttons-group">
-        <Button buttonText="Suriin" className="suriin-button" onButtonClicked={onSuriinClicked} />
+        <Button buttonText="Suriin" id="suriin_button" className="suriin-button" onButtonClicked={onSuriinClicked} />
         <Button
           buttonText={(state.correctionCount > 0) ? `${state.correctionCount} pagkakamali` : "—"}
           className={(state.correctionCount > 0) ? "error-count-button use-mistake-color" : "error-count-button"}
         />
       </div>
-
     </MainPageWrapper>
   );
 }
@@ -318,6 +328,10 @@ const MainPageWrapper = styled.div`
 
       background-color: ${({ textInputActive, theme }) => (
         (textInputActive) ? (theme.textInputBgActive) : (theme.textInputBgInactive)
+      )};
+
+      z-index: ${({ tutorialPage }) => (
+        (tutorialPage === 1) ? (11) : ('auto')
       )};
 
       transition: 100ms ease-in-out;

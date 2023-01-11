@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-function TextInput({ onTextInputChange, textInputActive, fontSizeValue }) {
+function TextInput({ tutorialPage, onTextInputChange, textInputActive, fontSizeValue }) {
   return (
-    <TextInputWrapper textInputActive={textInputActive} fontSizeValue={fontSizeValue}>
+    <TextInputWrapper id="text_input_outer" tutorialPage={tutorialPage} textInputActive={textInputActive} fontSizeValue={fontSizeValue}>
       {/* This is the only place where an HTML id is used, and this is a very important one */}
       <p contentEditable id="text_input_area" className="text-input-area" onInput={onTextInputChange}></p>
     </TextInputWrapper>
@@ -14,6 +14,9 @@ export default TextInput;
 const TextInputWrapper = styled.div`
   width: 70%;
   height: 400px;
+  z-index: ${({ tutorialPage }) => (
+    (tutorialPage === 0) ? (11) : ('auto')
+  )};
 
   border: 1px solid ${({ theme }) => theme.border};;
   border-radius: 20px;

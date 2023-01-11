@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-function InfoBox({ className, infoText, multilineInfoText, onInfoBoxClicked }) {
+function InfoBox({ id, className, infoText, multilineInfoText, onInfoBoxClicked }) {
   return (
-    <InfoBoxWrapper className={className} onClick={onInfoBoxClicked}>
+    <InfoBoxWrapper id={id} className={className} onClick={onInfoBoxClicked}>
       <div className="inner-info-box">
         <p className="info-text">
           {(multilineInfoText)

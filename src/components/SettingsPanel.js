@@ -9,7 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
-function SettingsPanel({ toggleSettingsPanel, toggleDarkMode, onSliderChange, fontSizeValue }) {
+function SettingsPanel({ toggleSettingsPanel, toggleDarkMode, onSliderChange, fontSizeValue, handleTutorialStart }) {
   return (
     <SettingsPanelWrapper>
       <button className="exit-button" onClick={toggleSettingsPanel}><CloseRoundedIcon /></button>
@@ -30,7 +30,7 @@ function SettingsPanel({ toggleSettingsPanel, toggleDarkMode, onSliderChange, fo
         </Stack>
       </div>
       <Link to="/about"><Button className="settings-option-button" buttonText="Tungkol sa TaGramatika" /></Link>
-      <Button className="settings-option-button" buttonText="Tutoryal" />
+      <Button onButtonClicked={handleTutorialStart} className="settings-option-button" buttonText="Tutoryal" />
     </SettingsPanelWrapper>
   );
 }

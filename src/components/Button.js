@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-function Button({ className, buttonText, onButtonClicked }) {
+function Button({ id, className, buttonText, onButtonClicked }) {
   return (
-    <ButtonWrapper className={className} onClick={onButtonClicked}>
+    <ButtonWrapper id={id} className={className} onClick={onButtonClicked}>
       {buttonText}
     </ButtonWrapper>
   );
