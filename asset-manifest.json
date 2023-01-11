@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tagramatika/static/css/main.e6c13ad2.css",
-    "main.js": "/tagramatika/static/js/main.1574588b.js",
+    "main.js": "/tagramatika/static/js/main.eab7cc51.js",
     "static/media/bg-light.jpg": "/tagramatika/static/media/bg-light.1da51c3434d72c074133.jpg",
     "static/media/bg-dark.jpg": "/tagramatika/static/media/bg-dark.7baa1c95bd0533f582c3.jpg",
     "static/media/Forum-Regular.ttf": "/tagramatika/static/media/Forum-Regular.6b8e836eb36b2f54db9a.ttf",
@@ -9,10 +9,10 @@
     "static/media/BerkshireSwash-Regular.ttf": "/tagramatika/static/media/BerkshireSwash-Regular.deb8b610d048e614dbbf.ttf",
     "index.html": "/tagramatika/index.html",
     "main.e6c13ad2.css.map": "/tagramatika/static/css/main.e6c13ad2.css.map",
-    "main.1574588b.js.map": "/tagramatika/static/js/main.1574588b.js.map"
+    "main.eab7cc51.js.map": "/tagramatika/static/js/main.eab7cc51.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.1574588b.js"
+    "static/js/main.eab7cc51.js"
   ]
 }
