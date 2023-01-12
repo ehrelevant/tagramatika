@@ -1,8 +1,8 @@
 
 const examples = [
   {
-    input: 'Mayroong daga sa kusina.',
-    uncorrectedHtml: '<u id="uncorrected_text" class="uncorrected-text">Mayroong</u> daga sa kusina.',
+    input: 'Mayroon daga sa kusina.',
+    uncorrectedHtml: '<u id="uncorrected_text" class="uncorrected-text">Mayroon</u> daga sa kusina.',
     corrected: 'May daga sa kusina.',
 
     details: {
@@ -22,6 +22,18 @@ const examples = [
       correction: 'nang',
       reason: 'Ng vs Nang',
       description: 'Ginagamit ang "nang" bilang kasingkahulugan ng mga salitang “noong” at “upang” o “para”.'
+    }
+  },
+  {
+    input: "Sila ay nagkakain ng tanghalian.",
+    uncorrectedHtml: 'Sila ay <u id="uncorrected_text" class="uncorrected-text">nagkakain</u> ng tanghalian.',
+    corrected: "Sila ay kumakain ng tanghalian.",
+
+    details: {
+      mistake: "nagkakain",
+      correction: "kumakain",
+      reason: "Mungkahi sa gramatika",
+      description: "Base sa mga datos, mas gamit ang salitang 'kumakain' dahil ito ay mas natural na gamitin."
     }
   },
 ]
