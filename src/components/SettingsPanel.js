@@ -9,7 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
-function SettingsPanel({ toggleSettingsPanel, toggleDarkMode, onSliderChange, fontSizeValue, handleTutorialStart }) {
+function SettingsPanel({ toggleSettingsPanel, isDarkModeEnabled, toggleDarkMode, onSliderChange, fontSizeValue, handleTutorialStart }) {
   return (
     <SettingsPanelWrapper>
       <button className="exit-button" onClick={toggleSettingsPanel}><CloseRoundedIcon /></button>
@@ -17,7 +17,7 @@ function SettingsPanel({ toggleSettingsPanel, toggleDarkMode, onSliderChange, fo
         <div className="settings-option-label">
           <p>Dark Mode</p>
         </div>
-        <Switch onChange={toggleDarkMode} />
+        <Switch checked={isDarkModeEnabled} onChange={toggleDarkMode} />
       </div>
       <div className="font-size-slider settings-option">
         <div className="settings-option-label">

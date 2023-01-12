@@ -24,12 +24,12 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <MainPage toggleDarkMode={toggleDarkMode} fontSizeValue={fontSizeValue} onSliderChange={onSliderChange}/>,
-      errorElement: <MainPage toggleDarkMode={toggleDarkMode} fontSizeValue={fontSizeValue} onSliderChange={onSliderChange}/>,
+      element: <MainPage isDarkModeEnabled={isDarkModeEnabled} toggleDarkMode={toggleDarkMode} fontSizeValue={fontSizeValue} onSliderChange={onSliderChange}/>,
+      errorElement: <MainPage isDarkModeEnabled={isDarkModeEnabled} toggleDarkMode={toggleDarkMode} fontSizeValue={fontSizeValue} onSliderChange={onSliderChange}/>,
     },
     {
       path: '/tagramatika',
-      element: <MainPage toggleDarkMode={toggleDarkMode} fontSizeValue={fontSizeValue} onSliderChange={onSliderChange}/>,
+      element: <MainPage isDarkModeEnabled={isDarkModeEnabled} toggleDarkMode={toggleDarkMode} fontSizeValue={fontSizeValue} onSliderChange={onSliderChange}/>,
     },
     {
       path: "/tagramatika/about",

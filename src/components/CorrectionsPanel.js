@@ -16,10 +16,10 @@ function CorrectionsPanel({ posX, posY, correctionDetails, onAccept, onReject })
         <p>{correctionDetails.correction}</p>
       </div>
       <div className="correction-div-group correction-description">
-        <p><u className="correction-reason">{correctionDetails.reason}</u> {correctionDetails.description}</p>
+        <p><u className="correction-reason">{correctionDetails.reason}</u>: {correctionDetails.description}</p>
       </div>
       <div className="correction-div-group correction-buttons">
-        <Button className="correction-button accept-button" buttonText="Tangappin" onButtonClicked={onAccept} />
+        <Button className="correction-button accept-button" buttonText="Tanggapin" onButtonClicked={onAccept} />
         <Button className="correction-button reject-button" buttonText="Tanggihan" onButtonClicked={onReject} />
         <Rating
           icon={<Star style={{ color: '#fff' }}fontSize="inherit" />}

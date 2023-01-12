@@ -21,7 +21,7 @@ const examples = [
       mistake: 'ng',
       correction: 'nang',
       reason: 'Ng vs Nang',
-      description: 'Ginagamit ang "nang" bilang kasingkahulugan ng mga salitang “noong” at “upang” o “para”.'
+      description: 'Ginagamit ang "nang" bilang kasingkahulugan ng mga salitang “noong”, “upang” o “para”.'
     }
   },
   {
@@ -33,7 +33,7 @@ const examples = [
       mistake: "nagkakain",
       correction: "kumakain",
       reason: "Mungkahi sa gramatika",
-      description: "Base sa mga datos, mas gamit ang salitang 'kumakain' dahil ito ay mas natural na gamitin."
+      description: "Base sa mga datos, mas gamit ang salitang 'kumakain' dahil mas natural pakinggan kung ito ang gagamitin."
     }
   },
 ]

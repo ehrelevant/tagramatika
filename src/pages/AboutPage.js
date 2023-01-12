@@ -102,7 +102,7 @@ const AboutPageWrapper = styled.div`
     overflow-y: hidden;
 
     .inner-info-box {
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
 `;

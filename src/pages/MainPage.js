@@ -11,7 +11,7 @@ import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 
 import { checkForExamples } from '../modules/checks';
 
-function MainPage({ toggleDarkMode, fontSizeValue, onSliderChange }) {
+function MainPage({ isDarkModeEnabled, toggleDarkMode, fontSizeValue, onSliderChange }) {
   const [ state, setState ] = useState({
     settingsPanelOpen: false,
     textInputContent: '',
@@ -155,7 +155,7 @@ function MainPage({ toggleDarkMode, fontSizeValue, onSliderChange }) {
     setState({
       settingsPanelOpen: state.settingsPanelOpen,
       darkModeEnabled: state.darkModeEnabled,
-      textInputContent: state.correctedText,
+      textInputContencheckClickOusideCorrectiont: state.correctedText,
       initialTextInputHtml: correctedTextHtml,
       textInputHtml: correctedTextHtml,
       textInputActive: state.textInputActive,
@@ -223,7 +223,7 @@ function MainPage({ toggleDarkMode, fontSizeValue, onSliderChange }) {
       }
 
       {((state.settingsPanelOpen)
-        ? (<SettingsPanel toggleSettingsPanel={toggleSettingsPanel} toggleDarkMode={toggleDarkMode} onSliderChange={onSliderChange} fontSizeValue={fontSizeValue} handleTutorialStart={handleTutorialStart} />)
+        ? (<SettingsPanel toggleSettingsPanel={toggleSettingsPanel} isDarkModeEnabled={isDarkModeEnabled} toggleDarkMode={toggleDarkMode} onSliderChange={onSliderChange} fontSizeValue={fontSizeValue} handleTutorialStart={handleTutorialStart} />)
         : (<button className="settings-button" onClick={toggleSettingsPanel}><SettingsRoundedIcon /></button>))}
 
       <div className="header-text">
