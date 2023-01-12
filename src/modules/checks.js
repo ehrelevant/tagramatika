@@ -6,8 +6,8 @@ const examples = [
     corrected: 'May daga sa kusina.',
 
     details: {
-      mistake: 'May',
-      correction: 'Mayroon',
+      mistake: 'Mayroon',
+      correction: 'May',
       reason: 'May vs Mayroon',
       description: 'Ginagamit ang "may" kapag sinusundan ito ng pangngalang pambalana.'
     }
