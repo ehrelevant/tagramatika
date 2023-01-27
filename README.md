@@ -6,4 +6,12 @@ This repository contains all the main coding files used for my group's demo of o
 
 This project was developed for the accomplishment of the CS 10 subject of the University of The Philippines-Diliman.
 
+## Live Demo
+
 [Click here to view the live demo](https://kindaexists.github.io/tagramatika/)
+
+### Working Demo Examples
+
+- *Mayroon* daga sa kusina.
+- Gumamit ako ng kutsara't tinidor *ng* kumain ako kaninang hapunan.
+- Sila ay *nagkakain* ng tanghalian.
