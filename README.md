@@ -8,7 +8,7 @@ This project was developed for the accomplishment of the CS 10 subject of the Un
 
 ## Live Demo
 
-[Click here to view the live demo](https://kindaexists.github.io/tagramatika/)
+[Click here to view the live demo](https://ehrelevant.github.io/tagramatika/)
 
 ### Working Demo Examples
 
